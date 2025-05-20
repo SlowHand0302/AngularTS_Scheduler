@@ -1,0 +1,66 @@
+<div class="flex flex-col gap-4">
+    <div>
+        <span class="text-sm text-muted-color font-semibold">Primary</span>
+        <div class="pt-2 flex gap-2 flex-wrap justify-start">
+            @for (primaryColor of primaryColors(); track primaryColor.name) {
+            <button
+                type="button"
+                [title]="primaryColor.name"
+                (click)="updateColors($event, 'primary', primaryColor)"
+                class="border-none w-5 h-5 rounded-full p-0 cursor-pointer outline-offset-1"
+                [style]="{
+                                'background-color': primaryColor?.name === 'noir' ? 'var(--text-color)' : primaryColor?.palette?.['500'],
+                                'outline-color': primaryColor.name === selectedPrimaryColor() ? primaryColor?.palette?.['500'] : 'var(--text-color)',
+                                'outline-style': primaryColor.name !== selectedPrimaryColor() ? 'none' : 'solid'
+                            }"
+            ></button>
+            }
+        </div>
+    </div>
+    <div>
+        <span class="text-sm text-muted-color font-semibold">Surface</span>
+        <div class="pt-2 flex gap-2 flex-wrap justify-start">
+            @for (surface of surfaces; track surface.name) {
+            <!-- <p>{{  }}</p> -->
+            <button
+                type="button"
+                [title]="surface.name"
+                (click)="updateColors($event, 'surface', surface)"
+                [ngClass]="{
+                    'outline-primary': selectedSurfaceColor()
+                        ? selectedSurfaceColor() === surface.name
+                        : layoutService.layoutConfig().darkTheme
+                        ? surface.name === 'zinc'
+                        : surface.name === 'slate'
+                }"
+                class="border-none w-5 h-5 rounded-full p-0 cursor-pointer outline-offset-1"
+                [style]="{
+                                'background-color': surface?.name === 'noir' ? 'var(--text-color)' : surface?.palette?.['500'],
+                                'outline-color': selectedSurfaceColor() && selectedSurfaceColor() === surface.name ? getHexByName(selectedPrimaryColor()!) : 'var(--text-color)',
+                                'outline-style': selectedSurfaceColor() && selectedSurfaceColor() === surface.name ? 'solid' : 'none',
+                            }"
+            ></button>
+            }
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+        <span class="text-sm text-muted-color font-semibold">Presets</span>
+        <p-selectbutton
+            [options]="presets"
+            [ngModel]="selectedPreset()"
+            (ngModelChange)="onPresetChange($event)"
+            [allowEmpty]="false"
+            size="small"
+        />
+    </div>
+    <div *ngIf="showMenuModeButton()" class="flex flex-col gap-2">
+        <span class="text-sm text-muted-color font-semibold">Menu Mode</span>
+        <p-selectbutton
+            [ngModel]="menuMode()"
+            (ngModelChange)="onMenuModeChange($event)"
+            [options]="menuModeOptions"
+            [allowEmpty]="false"
+            size="small"
+        />
+    </div>
+</div>

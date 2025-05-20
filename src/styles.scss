@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'tailwindcss';
+@use './assets/layout/layout.scss';
 @use 'primeicons/primeicons.css';
-@plugin "tailwindcss-primeui";
+@use './assets/demo/demo.scss';
+// @plugin "tailwindcss-primeui";
+.custom-no-pseudo::before,
+.custom-no-pseudo::after {
+    display: none !important;
+    content: none !important;
+}
