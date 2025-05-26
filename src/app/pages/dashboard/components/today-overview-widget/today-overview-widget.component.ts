@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
-import { TableModule } from 'primeng/table';
 import { SharedModule } from '../../../../shared/shared.module';
-import { Product, item } from '../../../../core/constants/todo-item.constant';
+import { mockTasks } from '../../../../core/constants/todo.constant';
+import { Task } from '../../../../core/models/Task.model';
 @Component({
     selector: 'app-today-overview-widget',
-    imports: [SharedModule, TableModule],
+    imports: [SharedModule],
     templateUrl: './today-overview-widget.component.html',
     styleUrl: './today-overview-widget.component.scss'
 })
 export class TodayOverviewWidgetComponent {
-    products!: Product[];
-
+    tasks!: Task[]
+    date1: Date | undefined;
     constructor() {}
 
     ngOnInit() {
-        this.products = [...item];
+        this.tasks = [...mockTasks];
+        this.date1 = new Date()
     }
 }
