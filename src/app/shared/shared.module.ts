@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RippleModule } from 'primeng/ripple';
 import { StyleClassModule } from 'primeng/styleclass';
@@ -14,10 +14,63 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { TableModule } from 'primeng/table';
 import { CalendarModule } from 'primeng/calendar';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { Popover } from 'primeng/popover';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { FloatLabel } from 'primeng/floatlabel';
+import { PopoverModule } from 'primeng/popover';
+import { DatePicker } from 'primeng/datepicker';
 
 @NgModule({
     declarations: [],
-    imports: [CommonModule, FormsModule, RouterModule, RippleModule, StyleClassModule, MenuModule, ButtonModule, Chip, Tag, PasswordModule, InputTextModule, CheckboxModule, TableModule, CalendarModule],
-    exports: [CommonModule, FormsModule, RouterModule, RippleModule, StyleClassModule, MenuModule, ButtonModule, Chip, Tag, PasswordModule, InputTextModule, CheckboxModule, TableModule, CalendarModule]
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule,
+        RippleModule,
+        StyleClassModule,
+        MenuModule,
+        ButtonModule,
+        Chip,
+        Tag,
+        PasswordModule,
+        InputTextModule,
+        CheckboxModule,
+        TableModule,
+        CalendarModule,
+        IconFieldModule,
+        InputIconModule,
+        MultiSelectModule,
+        Popover,
+        FloatLabel,
+        PopoverModule,
+        DatePicker
+    ],
+    exports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule,
+        RippleModule,
+        StyleClassModule,
+        MenuModule,
+        ButtonModule,
+        Chip,
+        Tag,
+        PasswordModule,
+        InputTextModule,
+        CheckboxModule,
+        TableModule,
+        CalendarModule,
+        IconFieldModule,
+        InputIconModule,
+        MultiSelectModule,
+        Popover,
+        FloatLabel,
+        PopoverModule,
+        DatePicker
+    ]
 })
 export class SharedModule {}

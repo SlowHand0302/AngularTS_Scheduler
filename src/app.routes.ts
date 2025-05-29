@@ -5,12 +5,15 @@ import { LoginComponent } from './app/pages/login/login.component';
 import { ErrorComponent } from './app/pages/error/error.component';
 import { AccessDenyComponent } from './app/pages/access-deny/access-deny.component';
 import { NotFoundComponent } from './app/pages/not-found/not-found.component';
-
+import { TodayTasksComponent } from './app/pages/today-tasks/today-tasks.component';
 export const appRoutes: Routes = [
     {
         path: '',
         component: LayoutComponent,
-        children: [{ path: '', component: DashboardComponent }]
+        children: [
+            { path: '', component: DashboardComponent },
+            { path: 'today', component: TodayTasksComponent }
+        ]
     },
     {
         path: 'login',
