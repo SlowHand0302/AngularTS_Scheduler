@@ -1,0 +1,27 @@
+@switch (status()) {
+    @case (enum.CANCELED) {
+        <p-tag [severity]="'danger'">
+            <span>{{ status() | titlecase }}</span>
+        </p-tag>
+    }
+    @case (enum.PROGRESSING) {
+        <p-tag [severity]="'warn'">
+            <span>{{ status() | titlecase }}</span>
+        </p-tag>
+    }
+    @case (enum.TODO) {
+        <p-tag [severity]="'info'">
+            <span>{{ status() | titlecase }}</span>
+        </p-tag>
+    }
+    @case (enum.BACKLOG) {
+        <p-tag [severity]="'contrast'">
+            <span>{{ status() | titlecase }}</span>
+        </p-tag>
+    }
+    @case (enum.DONE) {
+        <p-tag [severity]="'success'">
+            <span>{{ status() | titlecase }}</span>
+        </p-tag>
+    }
+}

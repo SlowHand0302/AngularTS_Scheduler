@@ -35,52 +35,10 @@
                 </td>
                 <td>{{ task.endDate | date: 'dd/MM/yyyy' }}</td>
                 <td>
-                    @switch (task.priority) {
-                        @case ('HIGH') {
-                            <p-tag [severity]="'danger'">
-                                <span>{{ task.priority | titlecase }}</span>
-                            </p-tag>
-                        }
-                        @case ('MEDIUM') {
-                            <p-tag [severity]="'warn'">
-                                <span>{{ task.priority | titlecase }}</span>
-                            </p-tag>
-                        }
-                        @case ('LOW') {
-                            <p-tag [severity]="'info'">
-                                <span>{{ task.priority | titlecase }}</span>
-                            </p-tag>
-                        }
-                    }
+                    <app-task-priority-tag [priority]="task.priority"></app-task-priority-tag>
                 </td>
                 <td>
-                    @switch (task.status) {
-                        @case ('CANCELED') {
-                            <p-tag [severity]="'danger'">
-                                <span>{{ task.status | titlecase }}</span>
-                            </p-tag>
-                        }
-                        @case ('IN_PROGRESS') {
-                            <p-tag [severity]="'warn'">
-                                <span>{{ task.status | titlecase }}</span>
-                            </p-tag>
-                        }
-                        @case ('TODO') {
-                            <p-tag [severity]="'info'">
-                                <span>{{ task.status | titlecase }}</span>
-                            </p-tag>
-                        }
-                        @case ('BACKLOG') {
-                            <p-tag [severity]="'contrast'">
-                                <span>{{ task.status | titlecase }}</span>
-                            </p-tag>
-                        }
-                        @case ('DONE') {
-                            <p-tag [severity]="'success'">
-                                <span>{{ task.status | titlecase }}</span>
-                            </p-tag>
-                        }
-                    }
+                    <app-task-status-tag [status]="task.status"></app-task-status-tag>
                 </td>
                 <td style="width: 15%">
                     <app-task-detail-drawer></app-task-detail-drawer>

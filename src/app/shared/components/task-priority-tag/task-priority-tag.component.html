@@ -1,0 +1,17 @@
+@switch (priority()) {
+    @case (enum.HIGH) {
+        <p-tag [severity]="'danger'">
+            <span>{{ priority() | titlecase }}</span>
+        </p-tag>
+    }
+    @case (enum.MEDIUM) {
+        <p-tag [severity]="'warn'">
+            <span>{{ priority() | titlecase }}</span>
+        </p-tag>
+    }
+    @case (enum.LOW) {
+        <p-tag [severity]="'info'">
+            <span>{{ priority() | titlecase }}</span>
+        </p-tag>
+    }
+}

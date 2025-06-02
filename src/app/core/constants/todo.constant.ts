@@ -9,7 +9,7 @@ export const mockTasks: Task[] = [
         details: 'Develop and test JWT-based authentication for the application',
         startDate: new Date('2025-05-27T09:00:00Z'),
         endDate: new Date('2025-06-03T17:00:00Z'),
-        status: TaskStatus.IN_PROGRESS,
+        status: TaskStatus.PROGRESSING,
         priority: TaskPriority.HIGH,
         type: TaskType.FEATURE
     },
@@ -45,7 +45,7 @@ export const mockTasks: Task[] = [
         details: 'Optimize database structure for better query performance',
         startDate: new Date('2025-06-02T09:00:00Z'),
         endDate: new Date('2025-06-10T17:00:00Z'),
-        status: TaskStatus.IN_PROGRESS,
+        status: TaskStatus.PROGRESSING,
         priority: TaskPriority.MEDIUM,
         type: TaskType.REFACTOR
     },
