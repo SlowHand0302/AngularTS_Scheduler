@@ -1,0 +1,115 @@
+<p-button type="button" (click)="visible2 = true" icon="pi pi-search" />
+<p-drawer header="Task Detail" [(visible)]="visible2" position="right" styleClass="!w-full md:!w-80 lg:!w-[30rem]">
+    <main class="space-y-4">
+        <header>
+            <h3>Implement user authentication</h3>
+            <p class="text-md font-semibold">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis quidem neque aperiam voluptates consequuntur nam eaque, omnis ipsum eius ipsa in exercitationem rem provident consequatur laboriosam ab aliquid doloribus amet.
+            </p>
+        </header>
+        <section>
+            <header class="font-bold text-xl flex items-center gap-3 mb-3">
+                <i class="pi pi-users" style="font-size: 1.5rem"></i>
+                <p>Stakeholders</p>
+            </header>
+            <p-avatar-group>
+                <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" size="large" shape="circle" />
+                <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" size="large" shape="circle" />
+                <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/onyamalimba.png" size="large" shape="circle" />
+                <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/ionibowcher.png" size="large" shape="circle" />
+                <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/xuxuefeng.png" size="large" shape="circle" />
+            </p-avatar-group>
+        </section>
+        <section>
+            <header class="font-bold text-xl flex items-center gap-3 mb-3">
+                <i class="pi pi-book" style="font-size: 1.5rem"></i>
+                <p>Details</p>
+            </header>
+            <div class="flex gap-3 items-center">
+                <p class="m-0 font-semibold">Priority:</p>
+                <p class="font-bold text-primary">High</p>
+            </div>
+            <div class="flex gap-3 items-center">
+                <p class="m-0 font-semibold">Status:</p>
+                <p class="font-bold text-primary">In Progress</p>
+            </div>
+            <div class="flex gap-3 items-center">
+                <p class="m-0 font-semibold">Tag:</p>
+                <p class="font-bold text-primary">Work, Develop</p>
+            </div>
+            <div class="flex gap-3 items-center">
+                <p class="m-0 font-semibold">Location:</p>
+                <p class="font-bold text-primary">Address / Link</p>
+            </div>
+            <div class="flex gap-3 items-center">
+                <p class="m-0 font-semibold">Recurrence:</p>
+                <p class="font-bold text-primary">Every 2 weeks until 11:20 AM, 22 April 2025</p>
+            </div>
+            <div class="">
+                <p class="m-0 font-semibold">Remind:</p>
+                <ul>
+                    <li>
+                        <p class="font-bold text-primary">3 days before start date</p>
+                    </li>
+                    <li>
+                        <p class="font-bold text-primary">3 days before deadline</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <header class="font-bold text-xl flex items-center gap-3 mb-3">
+                <i class="pi pi-calendar-clock" style="font-size: 1.5rem"></i>
+                <p>Dates:</p>
+            </header>
+            <div class="flex gap-3 items-center">
+                <p class="basis-1/3 m-0 font-semibold">Start Date:</p>
+                <p class="font-bold text-primary">11:20 AM, 22 April 2025</p>
+            </div>
+            <div class="flex gap-3 items-center">
+                <p class="basis-1/3 m-0 font-semibold">End Date:</p>
+                <p class="font-bold text-primary">11:20 AM, 22 April 2025</p>
+            </div>
+            <div class="flex gap-3 items-center">
+                <p class="basis-1/3 m-0 font-semibold">Created At:</p>
+                <p class="font-bold text-primary">11:20 AM, 22 April 2025</p>
+            </div>
+            <div class="flex gap-3 items-center">
+                <p class="basis-1/3 m-0 font-semibold">Updated At:</p>
+                <p class="font-bold text-primary">11:20 AM, 22 April 2025</p>
+            </div>
+        </section>
+        <section>
+            <header class="font-bold text-xl flex items-center gap-3 mb-3">
+                <i class="pi pi-paperclip" style="font-size: 1.5rem"></i>
+                <p>Attachments</p>
+            </header>
+            <div class="flex gap-3 overflow-x-scroll">
+                <p-card class="w-fit">
+                    <ng-template #title>
+                        <i class="pi pi-file-pdf" style="font-size: 2.5rem"></i>
+                    </ng-template>
+                    <ng-template #subtitle>
+                        <p class="font-bold line-clamp-1">name.pdf</p>
+                    </ng-template>
+                </p-card>
+                <p-card class="w-fit">
+                    <ng-template #title>
+                        <i class="pi pi-file-pdf" style="font-size: 2.5rem"></i>
+                    </ng-template>
+                    <ng-template #subtitle>
+                        <p class="font-bold line-clamp-1">name.pdf</p>
+                    </ng-template>
+                </p-card>
+                <p-card class="w-fit">
+                    <ng-template #title>
+                        <i class="pi pi-file-pdf" style="font-size: 2.5rem"></i>
+                    </ng-template>
+                    <ng-template #subtitle>
+                        <p class="font-bold line-clamp-1">name.pdf</p>
+                    </ng-template>
+                </p-card>
+            </div>
+        </section>
+    </main>
+</p-drawer>

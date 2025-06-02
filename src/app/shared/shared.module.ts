@@ -21,6 +21,10 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { FloatLabel } from 'primeng/floatlabel';
 import { PopoverModule } from 'primeng/popover';
 import { DatePicker } from 'primeng/datepicker';
+import { DrawerModule } from 'primeng/drawer';
+import { CardModule } from 'primeng/card';
+import { Avatar } from 'primeng/avatar';
+import { AvatarGroup } from 'primeng/avatargroup';
 
 @NgModule({
     declarations: [],
@@ -46,7 +50,11 @@ import { DatePicker } from 'primeng/datepicker';
         Popover,
         FloatLabel,
         PopoverModule,
-        DatePicker
+        DatePicker,
+        DrawerModule,
+        CardModule,
+        AvatarGroup,
+        Avatar
     ],
     exports: [
         CommonModule,
@@ -70,7 +78,11 @@ import { DatePicker } from 'primeng/datepicker';
         Popover,
         FloatLabel,
         PopoverModule,
-        DatePicker
+        DatePicker,
+        DrawerModule,
+        CardModule,
+        AvatarGroup,
+        Avatar
     ]
 })
 export class SharedModule {}
