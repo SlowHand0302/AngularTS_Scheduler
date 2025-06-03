@@ -1,27 +1,27 @@
 <p-button (click)="op.toggle($event)" icon="pi pi-filter" label="Filter" />
-<p-popover #op [style]="{ width: '450px' }">
+<p-popover #op [style]="{ 'max-width': '450px' }">
     <div class="grid grid-cols-4 grid-rows-4 gap-4">
-        <div class="col-span-2 row-span-2">
+        <div class="sm:col-span-2 col-span-4 row-span-2">
             <p-floatlabel class="w-full" variant="on">
                 <p-multiselect id="on_label" [(ngModel)]="selectedType" [options]="typeValues" optionLabel="name" filter [maxSelectedLabels]="3" styleClass="w-full" />
                 <label for="on_label">Type</label>
             </p-floatlabel>
         </div>
-        <div class="col-span-2 row-span-2 col-start-1 row-start-3">
+        <div class="row-start-1 row-span-2 col-start-1 col-span-4 sm:col-span-2">
             <p-floatlabel class="w-full" variant="on">
                 <p-multiselect id="on_label" [(ngModel)]="selectedStatus" [options]="statusValues" optionLabel="name" filter [maxSelectedLabels]="3" styleClass="w-full" />
                 <label for="on_label">Status</label>
             </p-floatlabel>
         </div>
-        <div class="col-span-2 row-span-2 col-start-3 row-start-1">
+        <div class="sm:col-start-3 sm:col-span-2 col-start-1 col-span-4 sm:row-start-1 row-span-2">
             <p-floatlabel class="w-full" variant="on">
                 <p-multiselect id="on_label" [(ngModel)]="selectedPriority" [options]="priorityValues" optionLabel="name" filter [maxSelectedLabels]="3" styleClass="w-full" />
                 <label for="on_label">Priority</label>
             </p-floatlabel>
         </div>
-        <div class="col-span-2 row-span-2 col-start-3 row-start-3">
+        <div class="sm:col-span-2 sm:row-span-2 sm:col-start-3 sm:row-start-3 col-span-4">
             <p-floatlabel variant="on">
-                <p-datepicker [(ngModel)]="selectedDeadline" dateFormat="dd/mm/yy" selectionMode="range" [showButtonBar]="true" inputId="on_label" showIcon iconDisplay="input" [minDate]="minDate" styleClass="w-full"/>
+                <p-datepicker [(ngModel)]="selectedDeadline" dateFormat="dd/mm/yy" selectionMode="range" [showButtonBar]="true" inputId="on_label" showIcon iconDisplay="input" [minDate]="minDate" styleClass="w-full" />
                 <label for="on_label">Deadline</label>
             </p-floatlabel>
         </div>

@@ -7,6 +7,7 @@ import { FilterPopoverComponent } from '../../shared/components/filter-popover/f
 import { TaskDetailDrawerComponent } from '../../shared/components/task-detail-drawer/task-detail-drawer.component';
 import { TaskStatusTagComponent } from '../../shared/components/task-status-tag/task-status-tag.component';
 import { TaskPriorityTagComponent } from '../../shared/components/task-priority-tag/task-priority-tag.component';
+import { MenuItem } from 'primeng/api';
 
 @Component({
     selector: 'app-today-tasks',

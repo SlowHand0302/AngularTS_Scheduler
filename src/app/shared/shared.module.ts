@@ -25,6 +25,9 @@ import { DrawerModule } from 'primeng/drawer';
 import { CardModule } from 'primeng/card';
 import { Avatar } from 'primeng/avatar';
 import { AvatarGroup } from 'primeng/avatargroup';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { PanelModule } from 'primeng/panel';
+import { SplitButtonModule } from 'primeng/splitbutton';
 
 @NgModule({
     declarations: [],
@@ -54,7 +57,10 @@ import { AvatarGroup } from 'primeng/avatargroup';
         DrawerModule,
         CardModule,
         AvatarGroup,
-        Avatar
+        Avatar,
+        ScrollPanelModule,
+        PanelModule,
+        SplitButtonModule
     ],
     exports: [
         CommonModule,
@@ -82,7 +88,10 @@ import { AvatarGroup } from 'primeng/avatargroup';
         DrawerModule,
         CardModule,
         AvatarGroup,
-        Avatar
+        Avatar,
+        ScrollPanelModule,
+        PanelModule,
+        SplitButtonModule
     ]
 })
 export class SharedModule {}
