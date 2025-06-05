@@ -1,0 +1,18 @@
+<p-panel styleClass="max-w-full bg-red-200" [toggleable]="true" expandIcon="pi pi-chevron-up" collapseIcon="pi pi-chevron-down">
+    <ng-template #header>
+        <div class="flex items-center gap-2">
+            <i class="pi pi-paperclip" style="font-size: 1.5rem"></i>
+            <p>Attachments ( 2 )</p>
+        </div>
+    </ng-template>
+    <ng-template #icons>
+        <p-button icon="pi pi-download" label="Download All" severity="secondary" text />
+    </ng-template>
+    <div class="flex gap-3 max-h-40 max-w-[1000px] overflow-scroll">
+        <app-file-card filename="name.pdf" size="12.40 MB"></app-file-card>
+        <app-file-card filename="name.docx" size="12.40 MB"></app-file-card>
+        <app-file-card filename="name.xlsx" size="12.40 MB"></app-file-card>
+        <app-file-card filename="name.json" size="12.40 MB"></app-file-card>
+        <app-file-card filename="name.png" size="12.40 MB"></app-file-card>
+    </div>
+</p-panel>

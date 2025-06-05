@@ -6,13 +6,16 @@ import { ErrorComponent } from './app/pages/error/error.component';
 import { AccessDenyComponent } from './app/pages/access-deny/access-deny.component';
 import { NotFoundComponent } from './app/pages/not-found/not-found.component';
 import { TodayTasksComponent } from './app/pages/today-tasks/today-tasks.component';
+import { TaskDetailsComponent } from './app/pages/task-details/task-details.component';
+
 export const appRoutes: Routes = [
     {
         path: '',
         component: LayoutComponent,
         children: [
             { path: '', component: DashboardComponent },
-            { path: 'today', component: TodayTasksComponent }
+            { path: 'today', component: TodayTasksComponent },
+            { path: 'details', component: TaskDetailsComponent }
         ]
     },
     {

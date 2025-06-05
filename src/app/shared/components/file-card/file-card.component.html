@@ -1,0 +1,31 @@
+<p-panel styleClass="max-w-full">
+    <div class="flex justify-between items-center">
+        <div class="flex gap-3 items-center">
+            @switch (icon()) {
+                @case ('pdf') {
+                    <i class="pi pi-file-pdf" style="font-size: 2.5rem; color: red"></i>
+                }
+                @case ('excel') {
+                    <i class="pi pi-file-excel" style="font-size: 2.5rem; color: green"></i>
+                }
+                @case ('word') {
+                    <i class="pi pi-file-word" style="font-size: 2.5rem; color: blue"></i>
+                }
+                @case ('code') {
+                    <i class="pi pi-code" style="font-size: 2.5rem; color: orange"></i>
+                }
+                @default {
+                    <i class="pi pi-file" style="font-size: 2.5rem"></i>
+                }
+            }
+            <div>
+                <p class="font-bold line-clamp-1 mb-0">{{ filename() }}</p>
+                <p class="line-clamp-1 mb-0">{{ size() }}</p>
+            </div>
+        </div>
+        <div class="flex items-center">
+            <p-button icon="pi pi-download" severity="secondary" variant="outlined" text />
+            <p-button icon="pi pi-external-link" severity="secondary" variant="outlined" text />
+        </div>
+    </div>
+</p-panel>
