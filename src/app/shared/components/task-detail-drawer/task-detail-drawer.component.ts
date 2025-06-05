@@ -1,20 +1,17 @@
 import { Component, output } from '@angular/core';
 import { SharedModule } from '../../shared.module';
-import { TaskPriorityTagComponent } from '../task-priority-tag/task-priority-tag.component';
-import { TaskStatusTagComponent } from '../task-status-tag/task-status-tag.component';
 import { mockTasks } from '../../../core/constants/todo.constant';
 import { MenuItem } from 'primeng/api';
-import { CommentComponent } from '../comment/comment.component';
-
+import { TaskDetailsComponent } from '../../../pages/task-details/task-details.component';
 @Component({
     selector: 'app-task-detail-drawer',
-    imports: [SharedModule, TaskPriorityTagComponent, TaskStatusTagComponent, CommentComponent],
+    imports: [SharedModule, TaskDetailsComponent],
     templateUrl: './task-detail-drawer.component.html',
     styleUrl: './task-detail-drawer.component.scss'
 })
 export class TaskDetailDrawerComponent {
     visible: boolean = false;
-    fullScreen: boolean = false
+    fullScreen: boolean = false;
     task = mockTasks[0];
     tag = ['work', 'document', 'daily'];
     archived: boolean = false;
