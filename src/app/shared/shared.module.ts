@@ -28,6 +28,9 @@ import { AvatarGroup } from 'primeng/avatargroup';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { PanelModule } from 'primeng/panel';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { DividerModule } from 'primeng/divider';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 
 @NgModule({
     declarations: [],
@@ -60,7 +63,10 @@ import { SplitButtonModule } from 'primeng/splitbutton';
         Avatar,
         ScrollPanelModule,
         PanelModule,
-        SplitButtonModule
+        SplitButtonModule,
+        DividerModule,
+        InputGroupModule,
+        InputGroupAddonModule
     ],
     exports: [
         CommonModule,
@@ -91,7 +97,10 @@ import { SplitButtonModule } from 'primeng/splitbutton';
         Avatar,
         ScrollPanelModule,
         PanelModule,
-        SplitButtonModule
+        SplitButtonModule,
+        DividerModule,
+        InputGroupModule,
+        InputGroupAddonModule
     ]
 })
 export class SharedModule {}

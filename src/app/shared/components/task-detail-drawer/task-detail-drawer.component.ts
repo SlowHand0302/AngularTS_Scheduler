@@ -4,9 +4,11 @@ import { TaskPriorityTagComponent } from '../task-priority-tag/task-priority-tag
 import { TaskStatusTagComponent } from '../task-status-tag/task-status-tag.component';
 import { mockTasks } from '../../../core/constants/todo.constant';
 import { MenuItem } from 'primeng/api';
+import { CommentComponent } from '../comment/comment.component';
+
 @Component({
     selector: 'app-task-detail-drawer',
-    imports: [SharedModule, TaskPriorityTagComponent, TaskStatusTagComponent],
+    imports: [SharedModule, TaskPriorityTagComponent, TaskStatusTagComponent, CommentComponent],
     templateUrl: './task-detail-drawer.component.html',
     styleUrl: './task-detail-drawer.component.scss'
 })
