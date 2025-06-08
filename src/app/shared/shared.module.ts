@@ -31,6 +31,9 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { DividerModule } from 'primeng/divider';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { Tooltip } from 'primeng/tooltip';
+import { Editor } from 'primeng/editor';
+import { Select } from 'primeng/select';
 
 @NgModule({
     declarations: [],
@@ -66,7 +69,10 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
         SplitButtonModule,
         DividerModule,
         InputGroupModule,
-        InputGroupAddonModule
+        InputGroupAddonModule,
+        Tooltip,
+        Editor,
+        Select
     ],
     exports: [
         CommonModule,
@@ -100,7 +106,10 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
         SplitButtonModule,
         DividerModule,
         InputGroupModule,
-        InputGroupAddonModule
+        InputGroupAddonModule,
+        Tooltip,
+        Editor,
+        Select
     ]
 })
 export class SharedModule {}

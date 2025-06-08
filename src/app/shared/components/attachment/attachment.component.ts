@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { FileCardComponent } from '../file-card/file-card.component';
 
@@ -8,4 +8,6 @@ import { FileCardComponent } from '../file-card/file-card.component';
     templateUrl: './attachment.component.html',
     styleUrl: './attachment.component.scss'
 })
-export class AttachmentComponent {}
+export class AttachmentComponent {
+    isQuickView = input<boolean>(false);
+}

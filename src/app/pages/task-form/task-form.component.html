@@ -1,0 +1,110 @@
+<div class="relative sm:p-7 p-2" style="background-color: var(--surface-card)">
+    <header class="sticky top-[4rem] z-[997] flex justify-between items-center backdrop-blur-md p-2">
+        <p class="mb-0 font-bold sm:text-[28px] text-[20px]">Create new Task</p>
+        <p-button class="flex items-center gap-2">
+            <i class="pi pi-save"></i>
+            <p class="sm:block hidden">Save</p>
+        </p-button>
+    </header>
+    <p-divider />
+    <main class="flex gap-3 sm:flex-row flex-col">
+        <section class="basis-1/2 space-y-3">
+            <div class="flex flex-col gap-2">
+                <label class="font-bold block" for="title">Title</label>
+                <input pInputText id="title" aria-describedby="username-help" placeholder="Enter your task title" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="font-bold block" for="username">Label</label>
+                <p-multiselect [options]="countries" [(ngModel)]="selectedCountries" placeholder="Select Countries" optionLabel="name" styleClass="w-full" display="chip">
+                    <ng-template let-country #item>
+                        <div class="flex items-center gap-2">
+                            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px" />
+                            <div>{{ country.name }}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template #dropdownicon>
+                        <i class="pi pi-map"></i>
+                    </ng-template>
+                    <ng-template #filtericon>
+                        <i class="pi pi-map-marker"></i>
+                    </ng-template>
+                    <ng-template #header>
+                        <div class="font-medium px-3 py-2">Available Countries</div>
+                    </ng-template>
+                    <ng-template #footer>
+                        <div class="p-3 flex justify-between">
+                            <p-button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
+                            <p-button label="Remove All" severity="danger" text size="small" icon="pi pi-times" />
+                        </div>
+                    </ng-template>
+                </p-multiselect>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="font-bold block" for="username">People</label>
+                <p-multiselect [options]="countries" [(ngModel)]="selectedCountries" placeholder="Select Countries" optionLabel="name" styleClass="w-full" display="chip">
+                    <ng-template let-country #item>
+                        <div class="flex items-center gap-2">
+                            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px" />
+                            <div>{{ country.name }}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template #dropdownicon>
+                        <i class="pi pi-map"></i>
+                    </ng-template>
+                    <ng-template #filtericon>
+                        <i class="pi pi-map-marker"></i>
+                    </ng-template>
+                    <ng-template #header>
+                        <div class="font-medium px-3 py-2">Available Countries</div>
+                    </ng-template>
+                    <ng-template #footer>
+                        <div class="p-3 flex justify-between">
+                            <p-button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
+                            <p-button label="Remove All" severity="danger" text size="small" icon="pi pi-times" />
+                        </div>
+                    </ng-template>
+                </p-multiselect>
+            </div>
+            <div class="flex gap-4 sm:flex-row flex-col">
+                <div class="shrink w-full flex flex-col gap-2">
+                    <label class="font-bold block" for="username">Priority</label>
+                    <p-select [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Select a City" class="w-full" />
+                </div>
+                <div class="shrink w-full flex flex-col gap-2">
+                    <label class="font-bold block" for="username">Status</label>
+                    <p-select [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Select a City" class="w-full" />
+                </div>
+            </div>
+            <div class="flex gap-4 sm:flex-row flex-col">
+                <div class="shrink w-full flex flex-col gap-2">
+                    <label class="font-bold block" for="calendar-24h" class="font-bold block"> Start time </label>
+                    <p-datepicker [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay" styleClass="w-full" placeholder="Enter your start date" />
+                </div>
+                <div class="shrink w-full flex flex-col gap-2">
+                    <label class="font-bold block" for="calendar-24h" class="font-bold block"> Due to </label>
+                    <p-datepicker [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay" styleClass="w-full" placeholder="Enter your deadline" />
+                </div>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="font-bold block" for="location">Location</label>
+                <input pInputText id="location" aria-describedby="username-help" placeholder="Enter your task location" />
+            </div>
+            <div>
+                <p-fileupload name="demo[]" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" maxFileSize="1000000" mode="advanced" [showUploadButton]="false" cancelLabel="Clear" url="https://www.primefaces.org/cdn/api/upload.php">
+                    <ng-template #empty>
+                        <div>Drag and drop files to here to upload.</div>
+                    </ng-template>
+                    <ng-template #content>
+                        <ul *ngIf="uploadedFiles.length">
+                            <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+                        </ul>
+                    </ng-template>
+                </p-fileupload>
+            </div>
+        </section>
+        <section class="basis-1/2 flex flex-col gap-2">
+            <label class="font-bold block" for="username">Description</label>
+            <p-editor [style]="{ height: '320px' }" />
+        </section>
+    </main>
+</div>

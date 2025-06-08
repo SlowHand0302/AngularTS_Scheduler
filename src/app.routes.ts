@@ -7,6 +7,7 @@ import { AccessDenyComponent } from './app/pages/access-deny/access-deny.compone
 import { NotFoundComponent } from './app/pages/not-found/not-found.component';
 import { TodayTasksComponent } from './app/pages/today-tasks/today-tasks.component';
 import { TaskDetailsComponent } from './app/pages/task-details/task-details.component';
+import { TaskFormComponent } from './app/pages/task-form/task-form.component';
 
 export const appRoutes: Routes = [
     {
@@ -15,7 +16,8 @@ export const appRoutes: Routes = [
         children: [
             { path: '', component: DashboardComponent },
             { path: 'today', component: TodayTasksComponent },
-            { path: 'details', component: TaskDetailsComponent }
+            { path: 'details', component: TaskDetailsComponent },
+            { path: 'add', component: TaskFormComponent }
         ]
     },
     {
