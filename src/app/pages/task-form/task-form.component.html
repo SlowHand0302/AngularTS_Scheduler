@@ -8,37 +8,12 @@
     </header>
     <p-divider />
     <main class="flex gap-3 sm:flex-row flex-col">
-        <section class="basis-1/2 space-y-3">
+        <section class="basis-1/2 flex flex-col gap-3">
             <div class="flex flex-col gap-2">
                 <label class="font-bold block" for="title">Title</label>
                 <input pInputText id="title" aria-describedby="username-help" placeholder="Enter your task title" />
             </div>
-            <div class="flex flex-col gap-2">
-                <label class="font-bold block" for="username">Label</label>
-                <p-multiselect [options]="countries" [(ngModel)]="selectedCountries" placeholder="Select Countries" optionLabel="name" styleClass="w-full" display="chip">
-                    <ng-template let-country #item>
-                        <div class="flex items-center gap-2">
-                            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px" />
-                            <div>{{ country.name }}</div>
-                        </div>
-                    </ng-template>
-                    <ng-template #dropdownicon>
-                        <i class="pi pi-map"></i>
-                    </ng-template>
-                    <ng-template #filtericon>
-                        <i class="pi pi-map-marker"></i>
-                    </ng-template>
-                    <ng-template #header>
-                        <div class="font-medium px-3 py-2">Available Countries</div>
-                    </ng-template>
-                    <ng-template #footer>
-                        <div class="p-3 flex justify-between">
-                            <p-button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
-                            <p-button label="Remove All" severity="danger" text size="small" icon="pi pi-times" />
-                        </div>
-                    </ng-template>
-                </p-multiselect>
-            </div>
+            <app-label-multiselect />
             <div class="flex flex-col gap-2">
                 <label class="font-bold block" for="username">People</label>
                 <p-multiselect [options]="countries" [(ngModel)]="selectedCountries" placeholder="Select Countries" optionLabel="name" styleClass="w-full" display="chip">
@@ -68,11 +43,11 @@
             <div class="flex gap-4 sm:flex-row flex-col">
                 <div class="shrink w-full flex flex-col gap-2">
                     <label class="font-bold block" for="username">Priority</label>
-                    <p-select [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Select a City" class="w-full" />
+                    <p-select [options]="priorities" [(ngModel)]="selectedPriority" optionLabel="name" placeholder="Select a Priority" class="w-full" />
                 </div>
                 <div class="shrink w-full flex flex-col gap-2">
                     <label class="font-bold block" for="username">Status</label>
-                    <p-select [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Select a City" class="w-full" />
+                    <p-select [options]="states" [(ngModel)]="selectedStatus" optionLabel="name" placeholder="Select a Status" class="w-full" />
                 </div>
             </div>
             <div class="flex gap-4 sm:flex-row flex-col">
@@ -87,7 +62,7 @@
             </div>
             <div class="flex flex-col gap-2">
                 <label class="font-bold block" for="location">Location</label>
-                <input pInputText id="location" aria-describedby="username-help" placeholder="Enter your task location" />
+                <app-location-select />
             </div>
             <div>
                 <p-fileupload name="demo[]" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" maxFileSize="1000000" mode="advanced" [showUploadButton]="false" cancelLabel="Clear" url="https://www.primefaces.org/cdn/api/upload.php">

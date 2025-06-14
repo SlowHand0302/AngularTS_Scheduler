@@ -34,6 +34,9 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { Tooltip } from 'primeng/tooltip';
 import { Editor } from 'primeng/editor';
 import { Select } from 'primeng/select';
+import { DialogModule } from 'primeng/dialog';
+import { ColorPickerModule } from 'primeng/colorpicker';
+import { Listbox } from 'primeng/listbox';
 
 @NgModule({
     declarations: [],
@@ -72,7 +75,10 @@ import { Select } from 'primeng/select';
         InputGroupAddonModule,
         Tooltip,
         Editor,
-        Select
+        Select,
+        DialogModule,
+        ColorPickerModule,
+        Listbox
     ],
     exports: [
         CommonModule,
@@ -109,7 +115,10 @@ import { Select } from 'primeng/select';
         InputGroupAddonModule,
         Tooltip,
         Editor,
-        Select
+        Select,
+        DialogModule,
+        ColorPickerModule,
+        Listbox
     ]
 })
 export class SharedModule {}

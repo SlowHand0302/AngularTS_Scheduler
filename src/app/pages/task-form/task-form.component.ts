@@ -1,19 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { FileUploadModule } from 'primeng/fileupload';
 import { MessageService } from 'primeng/api';
-
+import { LabelMultiselectComponent } from '../../shared/components/label-multiselect/label-multiselect.component';
+import { TaskPriority, TaskStatus } from '../../core/models/TaskV2.model';
+import { LocationSelectComponent } from '../../shared/components/location-select/location-select.component';
 interface Country {
     name: string;
     code: string;
 }
-interface City {
-    name: string;
-    code: string;
-}
+
 @Component({
     selector: 'app-task-form',
-    imports: [SharedModule, FileUploadModule],
+    imports: [SharedModule, FileUploadModule, LabelMultiselectComponent, LocationSelectComponent],
     templateUrl: './task-form.component.html',
     styleUrl: './task-form.component.scss',
     standalone: true,
@@ -21,11 +20,13 @@ interface City {
 })
 export class TaskFormComponent {
     countries!: Country[];
-    cities: City[] | undefined;
     uploadedFiles: any[] = [];
+    priorities: any[] = [];
+    states: any[] = [];
 
-    selectedCity: City | undefined;
     selectedCountries!: Country[];
+    selectedStatus!: string;
+    selectedPriority!: string;
 
     constructor(private messageService: MessageService) {
         this.countries = [
@@ -40,14 +41,23 @@ export class TaskFormComponent {
             { name: 'Spain', code: 'ES' },
             { name: 'United States', code: 'US' }
         ];
-        this.cities = [
-            { name: 'New York', code: 'NY' },
-            { name: 'Rome', code: 'RM' },
-            { name: 'London', code: 'LDN' },
-            { name: 'Istanbul', code: 'IST' },
-            { name: 'Paris', code: 'PRS' }
-        ];
+
+        this.states = Object.values(TaskStatus).map((state) => {
+            return {
+                name: state
+            };
+        });
+        this.priorities = Object.values(TaskPriority).map((priority) => {
+            return {
+                name: priority
+            };
+        });
     }
+
+    ngOnChanges(changes: SimpleChanges) {
+        console.log(changes);
+    }
+
     onUpload(event: any) {
         for (const file of event.files) {
             this.uploadedFiles.push(file);

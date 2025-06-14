@@ -1,0 +1,49 @@
+<div class="flex flex-col gap-2">
+    <label class="font-bold block" for="label">Label</label>
+    <p-multiselect
+        id="label"
+        [options]="labels"
+        [(ngModel)]="selectedLabels"
+        placeholder="Select labels"
+        optionLabel="name"
+        styleClass="w-full"
+        [maxSelectedLabels]="0"
+        [filterFields]="labels"
+        (onFilter)="onFilterInputChange($event)"
+        [showClear]="true"
+        [resetFilterOnHide]="true"
+        [autofocusFilter]="true"
+    >
+        <ng-template let-label #item>
+            <p-tag [style]="{ background: label.color, color: 'var(--text-color)' }">
+                <div class="flex items-center gap-2 px-1">
+                    <span class="text-base"> {{ label.name }} </span>
+                </div>
+            </p-tag>
+        </ng-template>
+
+        <ng-template #dropdownicon>
+            <i class="pi pi-tags"></i>
+        </ng-template>
+        <ng-template #filtericon>
+            <i class="pi pi-search"></i>
+        </ng-template>
+        <ng-template #header>
+            <div class="font-medium px-3 py-2">Available Countries</div>
+        </ng-template>
+        <ng-template #footer>
+            <div class="p-3 flex justify-between">
+                <p-button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" (onClick)="triggerShowModal(true)" />
+                <p-button label="Clear All Selected" severity="danger" text size="small" icon="pi pi-times" (onClick)="onClearAllSelectedItems()" />
+            </div>
+        </ng-template>
+    </p-multiselect>
+    @if (selectedLabels && selectedLabels.length > 0) {
+        <div class="max-w-[560px] flex gap-2 overflow-x-scroll">
+            @for (item of selectedLabels; track item.id) {
+                <p-chip [label]="item.name" [style]="{ background: item.color }" styleClass="whitespace-nowrap" [removable]="true" (onRemove)="onRemoveSingleChip(item.id)" />
+            }
+        </div>
+    }
+</div>
+<app-label-form [visible]="showAddLabelModal()" (triggerCloseModal)="triggerShowModal($event)" />

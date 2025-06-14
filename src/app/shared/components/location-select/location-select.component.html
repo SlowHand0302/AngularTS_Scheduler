@@ -1,0 +1,20 @@
+<div class="flex gap-3">
+    <div class="basis-3/4 relative">
+        <input pInputText id="location" placeholder="Enter your task location" class="w-full" autocomplete="off" (focus)="this.showListSearch = this.selectedType.name === 'Location'" (blur)="this.showListSearch = false" />
+        <p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" class="w-full absolute right-0 top-10 z-10" [ngClass]="showListSearch ? 'block' : 'hidden'" />
+    </div>
+    <p-select [options]="locationType" [(ngModel)]="selectedType" optionLabel="name" placeholder="Select a country" class="w-full basis-1/4 md:w-56">
+        <ng-template #selectedItem let-selectedOption>
+            <div class="flex items-center gap-2" *ngIf="selectedOption">
+                <i [class]="selectedType.icon"></i>
+                <div>{{ selectedOption.name }}</div>
+            </div>
+        </ng-template>
+        <ng-template let-type #item>
+            <div class="flex items-center gap-2">
+                <i [class]="type.icon"></i>
+                <div>{{ type.name }}</div>
+            </div>
+        </ng-template>
+    </p-select>
+</div>
