@@ -19,7 +19,6 @@ export class LabelMultiselectComponent {
     showAddLabelModal = signal<boolean>(false);
     labels!: Label[];
     selectedLabels!: Label[];
-    filtering!: Label[];
 
     constructor() {
         this.labels = [...mockLabels];
@@ -44,8 +43,6 @@ export class LabelMultiselectComponent {
 
     triggerShowModal(state: boolean) {
         console.log(state);
-        this.showAddLabelModal.set(state)
+        this.showAddLabelModal.set(state);
     }
-
-    
 }

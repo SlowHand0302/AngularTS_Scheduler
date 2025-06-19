@@ -2,7 +2,7 @@ import { Attachment } from './Attachment.model';
 import { Label } from './Label.model';
 import { Recurrence } from './Recurrence.model';
 import { Reminder } from './Reminder.model';
-import { StakeHolder } from './Stakeholder.model';
+import { Participant } from './Participant.model';
 
 export interface Task {
     id: string;
@@ -16,7 +16,7 @@ export interface Task {
     endTime: Date;
     location: string;
     isArchived: boolean;
-    stakeholders?: StakeHolder[];
+    participants?: Participant[];
     recurrences?: Recurrence[];
     reminder?: Reminder[];
     attachments?: Attachment[];

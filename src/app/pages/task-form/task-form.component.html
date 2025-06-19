@@ -14,32 +14,7 @@
                 <input pInputText id="title" aria-describedby="username-help" placeholder="Enter your task title" />
             </div>
             <app-label-multiselect />
-            <div class="flex flex-col gap-2">
-                <label class="font-bold block" for="username">People</label>
-                <p-multiselect [options]="countries" [(ngModel)]="selectedCountries" placeholder="Select Countries" optionLabel="name" styleClass="w-full" display="chip">
-                    <ng-template let-country #item>
-                        <div class="flex items-center gap-2">
-                            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px" />
-                            <div>{{ country.name }}</div>
-                        </div>
-                    </ng-template>
-                    <ng-template #dropdownicon>
-                        <i class="pi pi-map"></i>
-                    </ng-template>
-                    <ng-template #filtericon>
-                        <i class="pi pi-map-marker"></i>
-                    </ng-template>
-                    <ng-template #header>
-                        <div class="font-medium px-3 py-2">Available Countries</div>
-                    </ng-template>
-                    <ng-template #footer>
-                        <div class="p-3 flex justify-between">
-                            <p-button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
-                            <p-button label="Remove All" severity="danger" text size="small" icon="pi pi-times" />
-                        </div>
-                    </ng-template>
-                </p-multiselect>
-            </div>
+            <app-participant-multiselect />
             <div class="flex gap-4 sm:flex-row flex-col">
                 <div class="shrink w-full flex flex-col gap-2">
                     <label class="font-bold block" for="username">Priority</label>

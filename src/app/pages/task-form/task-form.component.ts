@@ -5,6 +5,7 @@ import { MessageService } from 'primeng/api';
 import { LabelMultiselectComponent } from '../../shared/components/label-multiselect/label-multiselect.component';
 import { TaskPriority, TaskStatus } from '../../core/models/TaskV2.model';
 import { LocationSelectComponent } from '../../shared/components/location-select/location-select.component';
+import { ParticipantMultiselectComponent } from '../../shared/components/participant-multiselect/participant-multiselect.component';
 interface Country {
     name: string;
     code: string;
@@ -12,7 +13,7 @@ interface Country {
 
 @Component({
     selector: 'app-task-form',
-    imports: [SharedModule, FileUploadModule, LabelMultiselectComponent, LocationSelectComponent],
+    imports: [SharedModule, FileUploadModule, LabelMultiselectComponent, LocationSelectComponent, ParticipantMultiselectComponent],
     templateUrl: './task-form.component.html',
     styleUrl: './task-form.component.scss',
     standalone: true,

@@ -13,6 +13,7 @@
         [showClear]="true"
         [resetFilterOnHide]="true"
         [autofocusFilter]="true"
+        selectedItemsLabel="{} labels selected"
     >
         <ng-template let-label #item>
             <p-tag [style]="{ background: label.color, color: 'var(--text-color)' }">
@@ -29,7 +30,7 @@
             <i class="pi pi-search"></i>
         </ng-template>
         <ng-template #header>
-            <div class="font-medium px-3 py-2">Available Countries</div>
+            <div class="font-medium px-3 py-2">Available Labels</div>
         </ng-template>
         <ng-template #footer>
             <div class="p-3 flex justify-between">

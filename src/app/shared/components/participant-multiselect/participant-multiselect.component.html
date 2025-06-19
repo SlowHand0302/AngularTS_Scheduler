@@ -1,0 +1,60 @@
+<div class="flex flex-col gap-2">
+    <label class="font-bold block" for="participant">Participants: </label>
+    <p-multiselect
+        id="participant"
+        [options]="participants"
+        [(ngModel)]="selectedParticipants"
+        placeholder="Select Participants"
+        optionLabel="name"
+        styleClass="w-full"
+        [maxSelectedLabels]="0"
+        [filterFields]="selectedParticipants"
+        (onFilter)="onFilterInputChange($event)"
+        [showClear]="true"
+        [resetFilterOnHide]="true"
+        [autofocusFilter]="true"
+        selectedItemsLabel="{} participants selected"
+    >
+        <ng-template let-participant #item>
+            <div class="flex items-center justify-between w-full gap-2 px-1">
+                <div class="flex items-center gap-2">
+                    <p-avatar [image]="participant.avatar || null" [label]="!participant.avatar ? (participant.name?.charAt(0) | uppercase) : undefined" styleClass="mr-2" shape="circle" />
+                    <span class="text-base"> {{ participant.name }} </span>
+                </div>
+                <p-button icon="pi pi-ellipsis-v" size="small" variant="text" severity="secondary" (onClick)="triggerShowParticipantDetails($event, participant.id)" />
+            </div>
+        </ng-template>
+        <ng-template #dropdownicon>
+            <i class="pi pi-user"></i>
+        </ng-template>
+        <ng-template #filtericon>
+            <i class="pi pi-search"></i>
+        </ng-template>
+        <ng-template #header>
+            <div class="font-medium px-3 py-2">Available Participants</div>
+        </ng-template>
+        <ng-template #footer>
+            <div class="p-3 flex justify-between">
+                <p-button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
+                <p-button label="Clear All Selected" severity="danger" text size="small" icon="pi pi-times" (onClick)="onClearAllSelectedItems()" />
+            </div>
+        </ng-template>
+    </p-multiselect>
+    @if (selectedParticipants && selectedParticipants.length > 0) {
+        <div class="max-w-[560px] flex gap-2 overflow-x-scroll">
+            @for (item of selectedParticipants; track item.id) {
+                <p-chip styleClass="whitespace-nowrap !py-0 !pl-0 !pr-4" [removable]="true" (onRemove)="onRemoveSingleChip(item.id)">
+                    <span>
+                        <p-avatar [image]="item.avatar" [label]="!item.avatar ? (item.name.charAt(0) | uppercase) : undefined" styleClass="mr-2" shape="circle" />
+                    </span>
+                    <span class="text-base"> {{ item.name }} </span>
+                </p-chip>
+            }
+        </div>
+    }
+</div>
+<p-dialog [modal]="true" [visible]="showParticipantModalDetail()" [style]="{ width: 'fit-content' }" [closable]="true">
+    <ng-template #headless>
+        <app-participant-card (triggerCloseCard)="handleCloseParticipantDetails($event)" />
+    </ng-template>
+</p-dialog>
