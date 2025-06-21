@@ -1,5 +1,4 @@
 <div class="flex flex-col gap-2">
-    <label class="font-bold block" for="label">Label</label>
     <p-multiselect
         id="label"
         [options]="labels"
@@ -39,7 +38,7 @@
             </div>
         </ng-template>
     </p-multiselect>
-    @if (selectedLabels && selectedLabels.length > 0) {
+    @if (selectedLabels && selectedLabels.length > 0 && chipListVisible()) {
         <div class="max-w-[560px] flex gap-2 overflow-x-scroll">
             @for (item of selectedLabels; track item.id) {
                 <p-chip [label]="item.name" [style]="{ background: item.color }" styleClass="whitespace-nowrap" [removable]="true" (onRemove)="onRemoveSingleChip(item.id)" />

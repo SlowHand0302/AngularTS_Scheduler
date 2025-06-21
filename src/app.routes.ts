@@ -8,6 +8,7 @@ import { NotFoundComponent } from './app/pages/not-found/not-found.component';
 import { TodayTasksComponent } from './app/pages/today-tasks/today-tasks.component';
 import { TaskDetailsComponent } from './app/pages/task-details/task-details.component';
 import { TaskFormComponent } from './app/pages/task-form/task-form.component';
+import { ParticipantListComponent } from './app/pages/participant-list/participant-list.component';
 
 export const appRoutes: Routes = [
     {
@@ -17,7 +18,8 @@ export const appRoutes: Routes = [
             { path: '', component: DashboardComponent },
             { path: 'today', component: TodayTasksComponent },
             { path: 'details', component: TaskDetailsComponent },
-            { path: 'add', component: TaskFormComponent }
+            { path: 'add', component: TaskFormComponent },
+            { path: 'participants', component: ParticipantListComponent }
         ]
     },
     {

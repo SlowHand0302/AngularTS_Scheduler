@@ -19,7 +19,8 @@ export class MenuComponent {
                 label: 'Home',
                 items: [
                     { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
-                    { label: 'Today Tasks', icon: 'pi pi-list', routerLink: ['today'] }
+                    { label: 'Today Tasks', icon: 'pi pi-list', routerLink: ['today'] },
+                    { label: 'Participants', icon: 'pi pi-users', routerLink: ['participants'] }
                 ]
             }
         ];

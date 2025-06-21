@@ -1,0 +1,31 @@
+<div class="card relative sm:!p-7 !p-5">
+    <header class="sticky top-[4rem] z-[997] flex flex-col justify-between backdrop-blur-md p-2">
+        <p class="mb-0 font-bold sm:text-[28px] text-[20px]">Participants List</p>
+        <p-toolbar>
+            <ng-template #start>
+                <div class="flex gap-2 sm:flex-row">
+                    <p-button icon="pi pi-plus" class="mr-2" severity="secondary" text (onClick)="visibleParticipantFormModal = true"/>
+                    <div class="flex gap-2">
+                        <app-label-multiselect [chipListVisible]="false"></app-label-multiselect>
+                        <p-select [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Sort By" class="grow w-full md:w-56" />
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template #end>
+                <p-iconfield styleClass="w-full">
+                    <p-inputicon>
+                        <i class="pi pi-search"></i>
+                    </p-inputicon>
+                    <input pInputText placeholder="Search" class="w-full" />
+                </p-iconfield>
+            </ng-template>
+        </p-toolbar>
+    </header>
+    <p-divider />
+    <main class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm:grid-rows-4 grid-flow-row gap-6">
+        @for (item of participants; track item.id) {
+            <app-participant-card [participant]="item" />
+        }
+    </main>
+</div>
+<app-participant-form [visible]="visibleParticipantFormModal" (triggerCloseModal)="visibleParticipantFormModal = false"></app-participant-form>

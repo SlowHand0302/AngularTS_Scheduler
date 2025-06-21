@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output, output } from '@angular/core';
+import { Component, computed, EventEmitter, input, Output } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { mockParticipants } from '../../../core/constants/participant-items.constant';
+import { Participant } from '../../../core/models/Participant.model';
 
 @Component({
     selector: 'app-participant-card',
@@ -9,7 +10,9 @@ import { mockParticipants } from '../../../core/constants/participant-items.cons
     styleUrl: './participant-card.component.scss'
 })
 export class ParticipantCardComponent {
-    participant = mockParticipants[0];
+    participant = input.required<Participant>();
+    hasLabels = computed(() => {
+        return (this.participant().labels ?? []).length > 0;
+    });
     @Output() triggerCloseCard = new EventEmitter<boolean>();
-    
 }

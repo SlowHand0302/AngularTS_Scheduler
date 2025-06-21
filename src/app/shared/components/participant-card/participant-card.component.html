@@ -1,36 +1,40 @@
-<div class="flex items-center justify-center">
-    <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
-        <ng-template #header>
-            <div class="w-full h-[100px] relative bg-gradient-to-r from-primary-300 to-primary-500">
-                <p-avatar [image]="participant.avatar || undefined" [label]="!participant.avatar ? (participant.name.charAt(0) | uppercase) : undefined" styleClass="mr-2 !size-24 absolute left-4 bottom-0 translate-y-4" shape="circle" />
-                <div class="absolute top-2 right-2 flex gap-1">
-                    @if (this.triggerCloseCard.observers.length <= 0) {
-                        <p-button icon="pi pi-trash" aria-label="Delete Participant" />
-                        <p-button icon="pi pi-user-edit" aria-label="Edit Participant" />
-                    } @else {
-                        <p-button icon="pi pi-times" aria-label="Close Participant Modal Detail" (onClick)="triggerCloseCard.emit()" />
-                    }
-                </div>
+<p-card [style]="{ width: '100%', overflow: 'hidden' }">
+    <ng-template #header>
+        <div class="w-full h-[100px] relative bg-gradient-to-r from-primary-300 to-primary-500">
+            <p-avatar
+                [image]="participant().avatar || undefined"
+                [label]="participant().avatar === '' ? (participant().name.charAt(0) | uppercase) : undefined"
+                styleClass="mr-2 !size-24 absolute left-4 bottom-0 translate-y-4 !text-3xl"
+                shape="circle"
+            />
+            <div class="absolute top-2 right-2 flex gap-1">
+                @if (this.triggerCloseCard.observers.length <= 0) {
+                    <p-button icon="pi pi-trash" aria-label="Delete Participant" />
+                    <p-button icon="pi pi-user-edit" aria-label="Edit Participant" />
+                } @else {
+                    <p-button icon="pi pi-times" aria-label="Close Participant Modal Detail" (onClick)="triggerCloseCard.emit()" />
+                }
             </div>
-        </ng-template>
-        <ng-template #title> {{ participant.name }} </ng-template>
-        <ng-template #subtitle>
-            <div class="flex gap-3">
-                <div class="flex gap-1 items-center">
-                    <i class="pi pi-envelope"></i>
-                    <p>{{ participant.email }}</p>
-                </div>
-                <div class="flex gap-1 items-center">
-                    <i class="pi pi-phone"></i>
-                    <p>{{ participant.phone }}</p>
-                </div>
-            </div>
-        </ng-template>
-        <p>{{ participant.notes }}</p>
-        <div class="max-w-[25rem] flex gap-2 overflow-x-scroll">
-            @for (item of participant.labels; track item.id) {
-                <p-chip [label]="item.name" [style]="{ background: item.color }" styleClass="whitespace-nowrap" />
-            }
         </div>
-    </p-card>
-</div>
+    </ng-template>
+    <ng-template #title> {{ participant().name }} </ng-template>
+    <ng-template #subtitle>
+        <div class="flex gap-3 xl:flex-row flex-col">
+            <div class="flex gap-1 items-center">
+                <i class="pi pi-envelope"></i>
+                <p>{{ participant().email || 'No email provided' }}</p>
+            </div>
+            <div class="flex gap-1 items-center">
+                <i class="pi pi-phone"></i>
+                <p>{{ participant().phone || 'No phone provided' }}</p>
+            </div>
+        </div>
+    </ng-template>
+    <p>{{ participant().notes }}</p>
+    <div class="max-w-[25rem] flex gap-2 overflow-x-scroll" [ngClass]="{ invisible: !hasLabels(), 'h-[45px]': !hasLabels() }">
+        @for (item of participant().labels; track item.id) {
+            <p-chip [label]="item.name" [style]="{ background: item.color }" styleClass="whitespace-nowrap" />
+        }
+    </div>
+</p-card>
+

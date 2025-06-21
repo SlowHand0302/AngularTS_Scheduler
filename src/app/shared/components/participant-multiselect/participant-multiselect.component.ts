@@ -13,8 +13,9 @@ import { ParticipantCardComponent } from '../participant-card/participant-card.c
 })
 export class ParticipantMultiselectComponent {
     showAddLabelModal = signal<boolean>(false);
-    showParticipantModalDetail = signal<boolean>(false);
+    showParticipantDetailModal = signal<boolean>(false);
 
+    participantDetailModalContent!: Participant;
     participants!: Participant[];
     selectedParticipants!: Participant[];
 
@@ -46,11 +47,12 @@ export class ParticipantMultiselectComponent {
 
     triggerShowParticipantDetails(event: MouseEvent, participantId: string) {
         event.stopPropagation();
-        this.showParticipantModalDetail.set(true);
+        this.participantDetailModalContent = mockParticipants.filter((item) => item.id === participantId)[0];
+        this.showParticipantDetailModal.set(true);
         console.log(participantId);
     }
 
     handleCloseParticipantDetails(event: boolean) {
-        this.showParticipantModalDetail.set(event);
+        this.showParticipantDetailModal.set(event);
     }
 }

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { Label } from '../../../core/models/Label.model';
 import { mockLabels } from '../../../core/constants/label-items.constant';
@@ -16,6 +16,7 @@ interface Country {
     styleUrl: './label-multiselect.component.scss'
 })
 export class LabelMultiselectComponent {
+    chipListVisible = input<boolean>(true);
     showAddLabelModal = signal<boolean>(false);
     labels!: Label[];
     selectedLabels!: Label[];

@@ -37,6 +37,11 @@ import { Select } from 'primeng/select';
 import { DialogModule } from 'primeng/dialog';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { Listbox } from 'primeng/listbox';
+import { ToolbarModule } from 'primeng/toolbar';
+import { TextareaModule } from 'primeng/textarea';
+import { BadgeModule } from 'primeng/badge';
+import { OverlayBadgeModule } from 'primeng/overlaybadge';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
     declarations: [],
@@ -78,7 +83,12 @@ import { Listbox } from 'primeng/listbox';
         Select,
         DialogModule,
         ColorPickerModule,
-        Listbox
+        Listbox,
+        ToolbarModule,
+        TextareaModule,
+        OverlayBadgeModule,
+        BadgeModule,
+        FileUploadModule
     ],
     exports: [
         CommonModule,
@@ -118,7 +128,12 @@ import { Listbox } from 'primeng/listbox';
         Select,
         DialogModule,
         ColorPickerModule,
-        Listbox
+        Listbox,
+        ToolbarModule,
+        TextareaModule,
+        OverlayBadgeModule,
+        BadgeModule,
+        FileUploadModule
     ]
 })
 export class SharedModule {}

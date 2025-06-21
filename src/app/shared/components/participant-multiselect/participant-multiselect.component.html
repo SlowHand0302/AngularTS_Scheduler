@@ -53,8 +53,8 @@
         </div>
     }
 </div>
-<p-dialog [modal]="true" [visible]="showParticipantModalDetail()" [style]="{ width: 'fit-content' }" [closable]="true">
+<p-dialog [modal]="true" [visible]="showParticipantDetailModal()" [style]="{ width: 'fit-content' }" [closable]="true">
     <ng-template #headless>
-        <app-participant-card (triggerCloseCard)="handleCloseParticipantDetails($event)" />
+        <app-participant-card [participant]="participantDetailModalContent" (triggerCloseCard)="handleCloseParticipantDetails($event)" />
     </ng-template>
 </p-dialog>
