@@ -28,14 +28,32 @@
                     <p-select [options]="states" [(ngModel)]="selectedStatus" optionLabel="name" placeholder="Select a Status" class="w-full" />
                 </div>
             </div>
-            <div class="flex gap-4 sm:flex-row flex-col">
-                <div class="shrink w-full flex flex-col gap-2">
-                    <label class="font-bold block" for="calendar-24h" class="font-bold block"> Start time </label>
+            <div class="flex gap-3 sm:flex-row flex-col">
+                <div class="basis-3/4 w-full flex flex-col gap-2">
+                    <label class="font-bold block" class="font-bold block"> Start Date </label>
                     <p-datepicker [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay" styleClass="w-full" placeholder="Enter your start date" />
                 </div>
-                <div class="shrink w-full flex flex-col gap-2">
-                    <label class="font-bold block" for="calendar-24h" class="font-bold block"> Due to </label>
-                    <p-datepicker [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay" styleClass="w-full" placeholder="Enter your deadline" />
+                <div class="basis-1/4 flex-auto flex flex-col gap-2">
+                    <label class="font-bold block" class="font-bold block"> Start Time </label>
+                    <p-datepicker [iconDisplay]="'input'" [showIcon]="true" [timeOnly]="true" inputId="templatedisplay" placeholder="00:00">
+                        <ng-template #inputicon let-clickCallBack="clickCallBack">
+                            <i class="pi pi-clock" (click)="clickCallBack($event)"></i>
+                        </ng-template>
+                    </p-datepicker>
+                </div>
+            </div>
+            <div class="flex gap-3 sm:flex-row flex-col">
+                <div class="basis-3/4 w-full flex flex-col gap-2">
+                    <label class="font-bold block" class="font-bold block"> Due Date </label>
+                    <p-datepicker [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay" styleClass="w-full" placeholder="Enter your due date" />
+                </div>
+                <div class="basis-1/4 flex-auto flex flex-col gap-2">
+                    <label class="font-bold block" class="font-bold block"> Due Time </label>
+                    <p-datepicker [iconDisplay]="'input'" [showIcon]="true" [timeOnly]="true" inputId="templatedisplay" placeholder="00:00">
+                        <ng-template #inputicon let-clickCallBack="clickCallBack">
+                            <i class="pi pi-clock" (click)="clickCallBack($event)"></i>
+                        </ng-template>
+                    </p-datepicker>
                 </div>
             </div>
             <div class="flex flex-col gap-2">

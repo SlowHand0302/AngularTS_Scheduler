@@ -1,0 +1,92 @@
+<div class="border rounded-lg border-surface-300 dark:border-surface-600">
+    <!-- Header -->
+    <div class="flex justify-between items-center p-4 rounded-t-lg bg-surface-50 dark:bg-surface-900 border-b border-surface-300 dark:border-surface-600">
+        <div class="flex items-center gap-4">
+            <button class="bg-surface-100 border border-surface-300 rounded w-8 h-8 flex items-center justify-center cursor-pointer text-2xl text-surface-700 hover:bg-surface-200 transition-colors" (click)="previousDay()">‹</button>
+            <h2 class="text-lg font-semibold text-surface-900 dark:text-surface-100 m-0">{{ formatDate(selectedDate()) }}</h2>
+            <button class="bg-surface-100 border border-surface-300 rounded w-8 h-8 flex items-center justify-center cursor-pointer text-2xl text-surface-700 hover:bg-surface-200 transition-colors" (click)="nextDay()">›</button>
+        </div>
+        <button class="bg-blue-500 text-white border-0 rounded px-4 py-2 cursor-pointer text-sm font-medium hover:bg-blue-600 transition-colors" (click)="goToToday()">Today</button>
+    </div>
+
+    <!-- Calendar Grid -->
+    <div class="h-[600px] overflow-auto relative">
+        <!-- Time column header -->
+        <div class="grid grid-cols-[80px_1fr] border-surface-300 dark:border-surface-600 border-b bg-surface-100 dark:bg-surface-950 sticky top-0 z-30">
+            <div class="p-3 text-sm font-medium text-surface-500">Time</div>
+            <div class="p-3 text-sm font-medium text-surface-900 dark:text-surface-100 border-l border-surface-300 dark:border-surface-600">
+                {{ getDayName(selectedDate()) }}
+            </div>
+        </div>
+
+        <!-- Calendar body -->
+        <div class="relative">
+            <div class="grid grid-cols-[80px_1fr]">
+                <!-- Time slots -->
+                <div class="border-r border-surface-300 dark:border-surface-600">
+                    @for (hour of hours; track hour) {
+                        <div class="h-16 border-b border-surface-300 dark:border-surface-600 p-2 text-xs text-gray-500 text-right">
+                            {{ formatHour(hour) }}
+                        </div>
+                    }
+                </div>
+
+                <!-- Event area -->
+                <div class="relative">
+                    <!-- Hour grid lines -->
+                    @for (hour of hours; track hour) {
+                        <div class="h-16 border-b border-surface-300 dark:border-surface-600 hover:bg-primary-100 cursor-pointer transition-colors" (click)="createEvent(hour)"></div>
+                    }
+
+                    <!-- Events -->
+                    @for (event of dayEvents(); track event.id) {
+                        <div
+                            class="absolute left-1 right-1 rounded-md shadow-sm border-l-4 p-2 cursor-pointer hover:shadow-md transition-shadow"
+                            [class]="event.color"
+                            [style.top.px]="getEventTop(event)"
+                            [style.height.px]="getEventHeight(event)"
+                            (click)="selectEvent(event)"
+                        >
+                            <div class="text-sm font-medium text-gray-900 truncate">
+                                {{ event.title }}
+                            </div>
+                            <div class="text-xs text-gray-600">{{ event.startTime }} - {{ event.endTime }}</div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Details Modal -->
+    @if (selectedEvent()) {
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-lg font-semibold text-gray-900">{{ selectedEvent()?.title }}</h3>
+                    <button (click)="closeEventDetails()" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <div>
+                        <span class="text-sm font-medium text-gray-500">Time:</span>
+                        <span class="ml-2 text-sm text-gray-900"> {{ selectedEvent()?.startTime }} - {{ selectedEvent()?.endTime }} </span>
+                    </div>
+                    @if (selectedEvent()?.description) {
+                        <div>
+                            <span class="text-sm font-medium text-gray-500">Description:</span>
+                            <p class="mt-1 text-sm text-gray-900">{{ selectedEvent()?.description }}</p>
+                        </div>
+                    }
+                </div>
+                <div class="mt-6 flex justify-end space-x-3">
+                    <button (click)="deleteEvent(selectedEvent()!.id)" class="px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors">Delete</button>
+                    <button (click)="closeEventDetails()" class="px-4 py-2 bg-gray-200 text-gray-900 rounded-lg hover:bg-gray-300 transition-colors">Close</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>

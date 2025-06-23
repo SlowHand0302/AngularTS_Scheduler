@@ -9,6 +9,7 @@ import { TodayTasksComponent } from './app/pages/today-tasks/today-tasks.compone
 import { TaskDetailsComponent } from './app/pages/task-details/task-details.component';
 import { TaskFormComponent } from './app/pages/task-form/task-form.component';
 import { ParticipantListComponent } from './app/pages/participant-list/participant-list.component';
+import { CalendarComponent } from './app/pages/calendar/calendar.component';
 
 export const appRoutes: Routes = [
     {
@@ -19,7 +20,8 @@ export const appRoutes: Routes = [
             { path: 'today', component: TodayTasksComponent },
             { path: 'details', component: TaskDetailsComponent },
             { path: 'add', component: TaskFormComponent },
-            { path: 'participants', component: ParticipantListComponent }
+            { path: 'participants', component: ParticipantListComponent },
+            { path: 'calendar', component: CalendarComponent }
         ]
     },
     {

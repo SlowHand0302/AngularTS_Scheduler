@@ -17,6 +17,7 @@ interface Country {
     templateUrl: './task-form.component.html',
     styleUrl: './task-form.component.scss',
     standalone: true,
+    providers: [MessageService]
 })
 export class TaskFormComponent {
     countries!: Country[];

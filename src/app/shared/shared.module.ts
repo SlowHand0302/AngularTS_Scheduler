@@ -42,6 +42,7 @@ import { TextareaModule } from 'primeng/textarea';
 import { BadgeModule } from 'primeng/badge';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
 import { FileUploadModule } from 'primeng/fileupload';
+import { ButtonGroupModule } from 'primeng/buttongroup';
 
 @NgModule({
     declarations: [],
@@ -88,7 +89,8 @@ import { FileUploadModule } from 'primeng/fileupload';
         TextareaModule,
         OverlayBadgeModule,
         BadgeModule,
-        FileUploadModule
+        FileUploadModule,
+        ButtonGroupModule
     ],
     exports: [
         CommonModule,
@@ -133,7 +135,8 @@ import { FileUploadModule } from 'primeng/fileupload';
         TextareaModule,
         OverlayBadgeModule,
         BadgeModule,
-        FileUploadModule
+        FileUploadModule,
+        ButtonGroupModule
     ]
 })
 export class SharedModule {}

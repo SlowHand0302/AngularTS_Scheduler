@@ -1,0 +1,22 @@
+<div class="card sm:p-8 !p-4">
+    <header class="sticky top-[4rem] z-[997] backdrop-blur-md py-2 flex justify-between items-center flex-wrap gap-3">
+        <h5 class="text-xl leading-8 font-semibold m-0">Calendar</h5>
+        <div class="flex gap-3 grow sm:grow-0 items-center sm:justify-center justify-between">
+            <p-calendar [(ngModel)]="date1" [showIcon]="true" styleClass="grow w-full md:w-56" />
+            <p-select [options]="calendarViewType" [(ngModel)]="selectedCalendarViewType" optionLabel="name" class="grow" />
+            <p-button>
+                <i class="pi pi-plus"></i>
+                <p class="md:block hidden">Add new</p>
+            </p-button>
+        </div>
+    </header>
+    @if (selectedCalendarViewType.code === 'month') {
+        <app-month-view></app-month-view>
+    }
+    @if (selectedCalendarViewType.code === 'week') {
+        <app-week-view [events]="calendarEvents"></app-week-view>
+    }
+    @if (selectedCalendarViewType.code === 'day') {
+        <app-day-view></app-day-view>
+    }
+</div>

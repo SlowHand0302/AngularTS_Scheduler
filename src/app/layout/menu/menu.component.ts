@@ -20,7 +20,8 @@ export class MenuComponent {
                 items: [
                     { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
                     { label: 'Today Tasks', icon: 'pi pi-list', routerLink: ['today'] },
-                    { label: 'Participants', icon: 'pi pi-users', routerLink: ['participants'] }
+                    { label: 'Participants', icon: 'pi pi-users', routerLink: ['participants'] },
+                    { label: 'Calendar', icon: 'pi pi-calendar', routerLink: ['calendar'] }
                 ]
             }
         ];

@@ -1,0 +1,13 @@
+<div
+    class="min-h-24 border-r border-b border-surface-200 last:border-r-0 p-2 relative hover:bg-primary-100 hover:text-surface-900 cursor-pointer transition-colors"
+    [ngClass]="!day().isCurrentMonth ? 'bg-surface-100 dark:bg-surface-950 text-gray-400' : 'bg-surface-0 dark:bg-surface-900 '"
+>
+    <div class="flex items-start justify-between h-full">
+        <span class="text-sm font-medium" [ngClass]="day().isToday ? 'bg-primary-600 text-white rounded-full w-7 h-7 flex items-center justify-center' : ''">
+            {{ day().date }}
+        </span>
+    </div>
+
+    <!-- Today indicator -->
+    <div *ngIf="day().isToday" class="absolute bottom-1 left-1 right-1 h-1 bg-primary-600 rounded"></div>
+</div>

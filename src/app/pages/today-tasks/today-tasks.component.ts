@@ -7,11 +7,10 @@ import { FilterPopoverComponent } from '../../shared/components/filter-popover/f
 import { TaskDetailDrawerComponent } from '../../shared/components/task-detail-drawer/task-detail-drawer.component';
 import { TaskStatusTagComponent } from '../../shared/components/task-status-tag/task-status-tag.component';
 import { TaskPriorityTagComponent } from '../../shared/components/task-priority-tag/task-priority-tag.component';
-import { MenuItem } from 'primeng/api';
-
+import { DayViewComponent } from '../../shared/components/day-view/day-view.component';
 @Component({
     selector: 'app-today-tasks',
-    imports: [SharedModule, FilterPopoverComponent, TaskDetailDrawerComponent, TaskStatusTagComponent, TaskPriorityTagComponent],
+    imports: [SharedModule, FilterPopoverComponent, TaskDetailDrawerComponent, TaskStatusTagComponent, TaskPriorityTagComponent, DayViewComponent],
     templateUrl: './today-tasks.component.html',
     styleUrl: './today-tasks.component.scss'
 })
